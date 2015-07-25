@@ -4,4 +4,7 @@
   <string name="hello_world">Hello world!</string>
   <string name="action_settings">Settings</string>
   <string name="test">테스트입니다.</string>
+  <string name="lucy">이은호입니다.</string>
+  <string name="soyoon">이소윤 입니다.</string>
+  <string name="clickbutton">buttonTest가 클릭됨</string>
 </resources>
