@@ -7,4 +7,8 @@
   <string name="lucy">이은호입니다.</string>
   <string name="soyoon">이소윤 입니다.</string>
   <string name="clickbutton">buttonTest가 클릭됨</string>
+  <string name="Title">스크랩 Book</string>
+  <string name="Confirm">설정</string>
+  <string name="Write">글쓰기</string>
+  <string name="refresh">새로고침</string>
 </resources>

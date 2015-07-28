@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
 
-  TextView textViewTest;
-  Button buttonTest;
+  WebView webViewMain;
+  Button buttonTitle, button1, button2, button3;
   View.OnClickListener cListener;
 
   @Override
@@ -20,16 +21,28 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    textViewTest = (TextView)findViewById(R.id.textViewTest);
-    buttonTest = (Button)findViewById(R.id.buttonTest);
+    webViewMain = (WebView)findViewById(R.id.webViewMain);
+    buttonTitle = (Button)findViewById(R.id.buttonTitle);
+    button1 = (Button)findViewById(R.id.button1);
+    button2 = (Button)findViewById(R.id.button2);
+    button3 = (Button)findViewById(R.id.button3);
 
     cListener = new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         //TODO Auto-generated method stub
         switch (v.getId()) {
-          case R.id.buttonTest:
-            textViewTest.setText(getString(R.string.clickbutton));
+          case R.id.buttonTitle:
+            buttonTitleClick();
+            break;
+          case R.id.button1:
+            button1Click();
+            break;
+          case R.id.button2:
+            button2Click();
+            break;
+          case R.id.button3:
+            button3Click();
             break;
           default:
             break;
@@ -37,7 +50,10 @@ public class MainActivity extends Activity {
       }
     };
 
-    buttonTest.setOnClickListener(cListener);
+    buttonTitle.setOnClickListener(cListener);
+    button1.setOnClickListener(cListener);
+    button2.setOnClickListener(cListener);
+    button3.setOnClickListener(cListener);
   }
 
   @Override
@@ -46,6 +62,14 @@ public class MainActivity extends Activity {
     getMenuInflater().inflate(R.menu.menu_main, menu);
     return true;
   }
+
+  void buttonTitleClick(){}
+
+  void button1Click(){}
+
+  void button2Click(){}
+
+  void button3Click(){}
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
