@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,6 +18,16 @@ public class MainActivity extends Activity {
   WebView webViewMain;
   Button buttonTitle, button1, button2, button3;
   View.OnClickListener cListener;
+
+  @Override
+  public void onBackPressed() {
+    //super.onBackPressed();
+    if(webViewMain.canGoBack()){
+      webViewMain.goBack();
+    } else {
+      finish();
+    }
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +67,21 @@ public class MainActivity extends Activity {
     button1.setOnClickListener(cListener);
     button2.setOnClickListener(cListener);
     button3.setOnClickListener(cListener);
+
+    WebSettings webSettings = webViewMain.getSettings();
+    webSettings.setJavaScriptEnabled(true);
+    webSettings.setBuiltInZoomControls(true);
+    webSettings.setDisplayZoomControls(false);
+
+    webViewMain.setWebViewClient(new WebViewClient() {
+
+    });
+
+    webViewMain.setWebChromeClient(new WebChromeClient() {
+
+    });
+
+    webViewMain.loadUrl("http://m.clien.net/cs3/");
   }
 
   @Override
