@@ -1,6 +1,7 @@
 package com.hoho.lksinny.mywebbook;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -74,7 +75,17 @@ public class MainActivity extends Activity {
     webSettings.setDisplayZoomControls(false);
 
     webViewMain.setWebViewClient(new WebViewClient() {
+      @Override
+      public void onPageStarted(WebView view, String url, Bitmap favicon) {
+        super.onPageStarted(view, url, favicon);
+        buttonTitle.setText("loading...");
+      }
 
+      @Override
+      public void onPageFinished(WebView view, String url) {
+        super.onPageFinished(view, url);
+        buttonTitle.setText(webViewMain.getTitle());
+      }
     });
 
     webViewMain.setWebChromeClient(new WebChromeClient() {
@@ -93,11 +104,17 @@ public class MainActivity extends Activity {
 
   void buttonTitleClick(){}
 
-  void button1Click(){}
+  void button1Click(){
+    webViewMain.loadUrl("javascript:document.getElementsByTagName('div')[2].style.display='none';");
+  }
 
-  void button2Click(){}
+  void button2Click(){
+    webViewMain.loadUrl("http://m.clien.net/cs3/board?bo_style=lists&bo_table=park");
+  }
 
-  void button3Click(){}
+  void button3Click(){
+    webViewMain.loadUrl("javascript:location.reload();");
+  }
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
